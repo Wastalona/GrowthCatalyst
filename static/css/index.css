@@ -1,0 +1,599 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+/**
+ * Базовые стили для всего сайта
+ */
+body {
+	position: relative;
+	font-family: 'Ubuntu', serif; font-size: 48px;
+	font-size: 16px;
+	line-height: 1.4;
+	color: #000;
+	background: #fefffb;
+	/*background: linear-gradient(180deg, #f6475a, #0d0d0c);*/
+	min-width: 320px;
+	overflow-x: hidden;
+	height: auto;
+}
+
+/**
+ * Другие стили
+ */
+
+.content{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+/*============= Navbar =============*/
+.navbar{
+	background-color:#fff;
+	width: 100%;
+	height: 80px;
+	box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+/*наследование*/
+.navbar .row{
+	height: inherit;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar-menu{
+	list-style-type: none;
+	padding-left: 0;
+}
+
+/* Navigation labels*/
+.navbar-menu li{
+	display: inline-block;
+}
+
+.navbar-menu li a{
+	display: inline-block;
+	padding-right: 30px;
+	color: #000;
+	opacity: .6;
+	text-decoration: none;
+	font-size: 1.1vw;
+	transition: all .1s ease-in-out;
+	cursor: pointer;
+    margin: 0 20px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.navbar-menu li a:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; /* Высота линии */
+    background-color: black; /* Цвет подчеркивания при исчезании линии*/
+    transition: width 0.5s; /* Время эффекта */
+}
+
+.navbar-menu li a:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: red; /* Цвет подчеркивания при появлении линии*/
+    transition: width 0.5s;  /* Время эффекта */
+}
+
+.navbar-menu li a:hover{
+	opacity: 1;
+	/*color: red;*/
+}
+
+
+.navbar-menu-wrap{
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+
+.navbar-logo{
+	width: 100px;
+	margin-left: 50px;
+	transition: transform 14s linear;
+}
+
+.navbar-logo img:hover{
+	transform: scale(1.1);
+}
+
+/*============= Home =============*/
+.app-map{
+	display: flex;
+	padding-right: 20%;
+	padding-left: 20%;
+	justify-content: center;
+	align-items: center;
+}
+
+.home-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+	flex-direction: column;
+	width:960px;
+	padding-top: 60px;
+	background: none;
+}
+
+.app-card{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: relative;
+	width: 180px;
+	height: 180px;
+	border-radius: 10px;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	transition: .5s ease;
+}
+
+.app-card:hover{
+	transform: translateY(-15px);
+	box-shadow: 0 15px 30px #000;
+
+	.number{
+		h2{
+			color:#000;
+			font-size:60px;
+		}
+
+		span{
+			color:#000;
+		}
+	}
+
+	h3{
+		color: red;
+	}
+}
+
+.app-card:before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:-50%;
+	width:100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+/* old */
+.progress-circles{
+	display: flex;
+	padding-right: 20%;
+	padding-left: 20%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fc-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: relative;
+    flex-direction: column;
+	width:960px;
+	padding-top: 60px;
+	background: none;
+    /*height: 100%;*/
+}
+
+.card{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: relative;
+	width: 250px;
+	height: 330px;
+	/*border: 2px solid black;*/
+	border-radius: 10px;
+	/*right part of card*/
+	/*background-color:rgba(0, 0, 0, 0.3);*/
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	transition: .5s ease;
+}
+
+.card:hover{
+	transform: translateY(-15px);
+	box-shadow: 0 15px 30px red;
+
+	.number{
+		h2{
+			color:#000;
+			font-size:60px;
+		}
+
+		span{
+			color:#000;
+		}
+	}
+
+	h3{
+		color: red;
+	}
+}
+
+.card:before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:-50%;
+	width:100%;
+	height: 100%;
+	/*left part of card*/
+	/*background-color:rgba(0, 0, 0, 0.3); */
+	pointer-events: none;
+}
+
+.percent{
+	margin-top:60px;
+	position:relative;
+	width: 150px;
+	height:150px;
+	border-radius:50%;
+	/*box-shadow:inset 0 0 50px #000;*/
+	/*background-color:#222;*/
+	z-index:1;
+}
+
+h3{
+	font-size:28px;
+	margin-top:16px;
+	color:#000;
+	transition: .5 ease;
+}
+
+
+.number{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border-radius:50%;
+
+	h2{
+		color:#777;
+		font-size:44px;
+		transition: .5s ease;
+
+		span{
+			color:#777;
+			padding-left:3px;
+			font-size:24px;
+			transition: .5s ease;
+		}
+	}
+}
+
+svg{
+	position:relative;
+	width:150px;
+	height:150px;
+	transform:rotate(-85deg);
+}
+
+circle{
+	width:100%
+	height:100%;
+	fill:none;
+	stroke-dasharray: 440;
+	stroke-width:10;
+	stroke-linecap: round;
+	transform: translate(5px, 5px);
+}
+
+.circle-50{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 220;*/
+	stroke: #8ce33b;
+}
+.circle-30{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 308;*/
+	stroke: #e6bc35;
+}
+.circle-20{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 352;*/
+	stroke: #e64435;
+}
+
+/*==================================*/
+
+/*============= Buch of keys =============*/
+.bk-block{
+	border: 4px solid #f6f7fb;
+	margin: auto;
+	margin-top: 60px;
+	padding: 10px 10px 10px 10px;
+	height: 340px;
+	width: 400px;
+	border-radius:15px;
+  	background: #303030;
+  	box-shadow: 0 15px 30px #000;
+}
+
+.input-text{
+	width: 89% ;
+	height: 45px;
+	background: #f6f7fb;
+	padding: 0 20px;
+	font-size: 14px;
+	line-height: 45px;
+	color: #171717;
+	border: none;
+	outline: none;
+	margin: 10px 0 15px 0;
+	text-align: center;
+	font-size: 20px;
+
+	transition: all .2s ease-in-out;
+}
+
+.input-text:hover{
+	transform: scale(1.03);
+	color:#bd2a2a;
+}
+
+
+.input-radio{
+	background-color: #f6f7fb;
+	padding: 0 20px 0;
+	font-size: 14px;
+	line-height: 45px;
+	color: #7d7d7d;
+	border: none;
+	outline: none;
+	margin: 0 0 15px 20%;
+}
+
+
+.action-block{
+	margin: auto;
+	margin-top: 20px;
+	height: 45px;
+	width: 40%;
+	font-family: "Roboto", sans-serif;
+  	font-weight: 400;
+}
+
+.push-btn {
+	color: red;
+	background: none;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 45px;
+	margin: 0 0 2em;
+	max-width: 160px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	text-align: center;
+	border: 0 solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+	outline: 1px solid;
+	outline-color: rgba(255, 255, 255, .5);
+	outline-offset: 0px;
+	text-shadow: none;
+	transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.push-btn:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}
+
+.result-block{
+	text-align: center;
+	padding: 10px 0px 0px 0px;
+	font-size: 20px;
+}
+
+.count-label{
+	color:#fff;
+}
+
+/*==================================*/
+
+/*============= Moderate Bank System =============*/
+.balance-box{
+	display: flex;
+	padding-right: 35%;
+	padding-left: 35%;
+	padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance-view{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: relative;
+    flex-direction: column;
+	width:460px;
+	border-radius: 20px;
+	box-shadow: 0px 15px 30px #000;
+
+	h4{
+		color:#777;
+		text-align:center;
+		margin-bottom: 0px;
+		padding-top:15px;
+	}
+
+	h1{
+		text-align:center;
+		margin-top:0px;
+	}
+}
+
+.acc-manage-box{
+	display: inline;
+	align-items:center;
+	width:100%;
+	height: 60px;
+	padding-bottom: 0px;
+
+	img{
+		height: 30px;
+		width: 30px;
+		margin:0px 10px -5px 10px;
+	}
+}
+
+.manage-btn{
+	width:100%;
+	height: 100%;
+	font-family: "Ubuntu", serif; font-size:20px;
+    border: none;
+    border-radius: 0px 0px 20px 20px;
+    color: black;
+    text-align: left;
+    cursor: pointer;
+    width:100%;
+}
+
+
+.mbs-charts{
+
+}
+
+.navbar-mbs-container{
+	/*background: blue;*/
+	padding-left:40vw;
+}
+
+
+.new-record{
+	display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+	position: relative;
+	width: 270px;
+	height: 330px;
+	border-radius: 10px;
+	background-color:rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+
+.mbs-card{
+	display: flex;
+	flex-direction: column;
+	position:relative;
+	width: 100%;
+	height: 100%;
+	padding: 10px 0 0 10px;
+	padding-top: 10px;
+}
+
+.textboxes{
+	/*padding-bottom:10;*/
+	/*margin-bottom: 20px; */
+
+	input{
+		height: 30px;
+		font-family: 'Ubuntu', serif; font-size: 48px;
+		font-size: 16px;
+		/*border-radius: 20px;*/
+	}
+
+	select{
+		font-family: 'Ubuntu', serif; font-size: 18px;
+	}
+
+	span{
+		font-family: 'Ubuntu', serif; font-size: 18px;
+	}
+}
+
+.box-btn{
+	width:80px;
+	height:80px;
+	border-radius:80px;
+	font-family: 'Ubuntu', serif; font-size: 38px;
+}
+
+.box-layout{
+    border: none;
+    border-radius:0;
+	margin-top:40%;
+	/*padding-right:40px; */
+}
+
+/*==================================*/
+/*============= Language bridge =============*/
+/*==================================*/
+/*============= Thoughts =============*/
+/*==================================*/
+/*============= Rewards =============*/
+/*==================================*/
+/*============= Progress =============*/
+/*==================================*/
+
+
+/*.action-block{
+	margin: auto;
+	margin-top: 10px;
+	height: 45px;
+	width: 28%;
+}
+
+.action-block button{
+	width: 90px;
+	height: 45px;
+}*/
+
+
+@media (max-width: 1200px){
+	.navbar-menu li a{
+		font-size: 21px;
+	}
+}
+
+
+@media (max-width: 760px){
+	.navbar-menu li a{
+		font-size: 18px;
+	}
+}

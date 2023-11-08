@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<img src="" alt="">
+<!-- <h1 class="home-level">10</h1> -->
+<div class="app-map">
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/bunch-of-kyes">
+				<img src="{{url_for('static', filename='img/home/key.png')}}" alt="BunchOfKeys" height="70px">
+			</a>
+		</div>
+	</div>
+
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/financial-control">
+			<img src="{{url_for('static', filename='img/home/briefcase.png')}}" alt="Financial control" height="70px">
+		</a>
+		</div>
+	</div>
+
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/language-bridge">
+				<img src="{{url_for('static', filename='img/home/language.png')}}" alt="Language bridge" height="70px">
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="app-map">
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/thoughts">
+			<img src="{{url_for('static', filename='img/home/thumbtack.png')}}" alt="Thoughts" height="70px">
+		</a>
+		</div>
+	</div>
+
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/rewards-system">
+				<img src="{{url_for('static', filename='img/home/award.png')}}" alt="Rewards" height="70px">
+			</a>
+		</div>
+	</div>
+
+	<div class="home-container">
+		<div class="app-card">
+			<a href="/progress">
+				<img src="{{url_for('static', filename='img/home/chart-pie-alt.png')}}" alt="Progress" height="70px">
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- <progress class="progressbar" value="200" max="500"> -->
+<!-- <h1>Do list</h1> -->
+{% endblock %}
