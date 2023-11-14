@@ -1,11 +1,3 @@
-/*============= Moderate Bank System =============*/
-input{
-	height: 30px;
-	font-family: 'Ubuntu', serif; font-size: 48px;
-	font-size: 16px;
-	border-radius: 20px;
-}
-
 .balance-box{
 	display: flex;
 	padding-right: 35%;
@@ -30,6 +22,7 @@ input{
 		color:#777;
 		text-align:center;
 		margin-bottom: 0px;
+		padding-top:15px;
 	}
 
 	h1{
@@ -39,47 +32,125 @@ input{
 }
 
 .acc-manage-box{
-	display: flex;
-	width:100%;
-	height: 40px;
+	display: inline;
 	align-items:center;
-	padding: 0px;
+	width:100%;
+	height: 60px;
+	padding-bottom: 0px;
 
 	img{
 		height: 30px;
 		width: 30px;
-		margin-right:10px;
-		margin-left:10px;
-	} 
+		margin:0px 10px -5px 10px;
+	}
 }
 
 .manage-btn{
 	width:100%;
 	height: 100%;
 	font-family: "Ubuntu", serif; font-size:20px;
-	/*background: red;*/
-    border: red;
+    border: none;
     border-radius: 0px 0px 20px 20px;
-    color: black; 
-    text-align: left; 
+    color: black;
+    text-align: left;
     cursor: pointer;
     width:100%;
 }
 
-
 .mbs-charts{
-	display: flex;
+
 }
 
-.mbs-canvas{
-	margin-top:100px;
+.navbar-mbs-container{
+	/*background: blue;*/
+	padding-left:40vw;
 }
 
 .new-record{
-	padding: 10px;
-	/*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+	display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+	position: relative;
+	width: 270px;
+	height: 330px;
+	border-radius: 10px;
+	background-color:rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+
+.mbs-card{
+	display: flex;
+	flex-direction: column;
+	position:relative;
+	width: 100%;
+	height: 100%;
+	padding: 10px 0 0 10px;
+	padding-top: 10px;
+}
+
+.textboxes{
+	/*padding-bottom:10;*/
+	/*margin-bottom: 20px; */
+
+	input{
+		height: 30px;
+		font-family: 'Ubuntu', serif; font-size: 48px;
+		font-size: 16px;
+		/*border-radius: 20px;*/
+	}
+
+	select{
+		font-family: 'Ubuntu', serif; font-size: 18px;
+	}
+
+	span{
+		font-family: 'Ubuntu', serif; font-size: 18px;
+	}
+}
+
+.box-btn{
+	width:80px;
+	height:80px;
+	border-radius:80px;
+	font-family: 'Ubuntu', serif; font-size: 38px;
+}
+
+.box-layout{
+    border: none;
+    border-radius:0;
+	margin-top:40%;
+	/*padding-right:40px; */
+}
+
+
+
+.progress-circles{
+	display: flex;
+	/* padding-right: 20%;
+	padding-left: 20%; */
+  justify-content: center;
+  align-items: center;
+
+}
+
+.fc-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: relative;
+    flex-direction: column;
+	width:960px;
+	padding-top: 60px;
+	background: none;
+    /*height: 100%;*/
+}
+
+.card{
+	display: flex;
+    justify-content: center;
+    align-items: center;
 
 	position: relative;
 	width: 250px;
@@ -87,14 +158,119 @@ input{
 	/*border: 2px solid black;*/
 	border-radius: 10px;
 	/*right part of card*/
-	background-color:rgba(0, 0, 0, 0.3);
+	/*background-color:rgba(0, 0, 0, 0.3);*/
 	cursor: pointer;
-	/*text-align: center;*/
+	text-align: center;
 	overflow: hidden;
+	transition: .5s ease;
 }
 
-.textboxes{
-	padding-bottom: 5px; 
+.card:hover{
+	transform: translateY(-15px);
+	box-shadow: 0 15px 30px red;
+
+	.number{
+		h2{
+			color:#000;
+			font-size:60px;
+		}
+
+		span{
+			color:#000;
+		}
+	}
+
+	h3{
+		color: red;
+	}
 }
 
-/*==================================*/
+.card:before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:-50%;
+	width:100%;
+	height: 100%;
+	/*left part of card*/
+	/*background-color:rgba(0, 0, 0, 0.3); */
+	pointer-events: none;
+}
+
+.percent{
+	margin-top:60px;
+	position:relative;
+	width: 150px;
+	height:150px;
+	border-radius:50%;
+	/*box-shadow:inset 0 0 50px #000;*/
+	/*background-color:#222;*/
+	z-index:1;
+}
+
+h3{
+	font-size:28px;
+	margin-top:16px;
+	color:#000;
+	transition: .5 ease;
+}
+
+
+.number{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border-radius:50%;
+
+	h2{
+		color:#777;
+		font-size:44px;
+		transition: .5s ease;
+
+		span{
+			color:#777;
+			padding-left:3px;
+			font-size:24px;
+			transition: .5s ease;
+		}
+	}
+}
+
+svg{
+	position:relative;
+	width:150px;
+	height:150px;
+	transform:rotate(-85deg);
+}
+
+circle{
+	width:100%
+	height:100%;
+	fill:none;
+	stroke-dasharray: 440;
+	stroke-width:10;
+	stroke-linecap: round;
+	transform: translate(5px, 5px);
+}
+
+.circle-50{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 220;*/
+	stroke: #8ce33b;
+}
+.circle-30{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 308;*/
+	stroke: #e6bc35;
+}
+.circle-20{
+	/*440 - 440 * 0.% */
+	/*stroke-dashoffset: 352;*/
+	stroke: #e64435;
+}

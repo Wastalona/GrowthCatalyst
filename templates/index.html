@@ -9,17 +9,18 @@
 	<!-- Шрифты с Google Fonts -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
 	<!-- Стили сайта -->
 	{% block styles %}{% endblock %}
+	<!-- <script src="{{url_for('static', filename='/js-scripts/index.js')}}"></script> -->
 	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/index.css') }}">
 	<!--
 	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/adaptive.css') }}"> -->
 	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename= '/img/logo.png') }}">
 </head>
 <body>
-	<!-- СОДЕРЖИМОЕ САЙТА -->
-	<nav class="navbar">
+	<!-- <nav class="navbar">
 		<div class="row">
 			<div class="navbar-logo">
 				<a onclick="location.reload()">
@@ -38,7 +39,101 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
-	{% block body %}{% endblock %}
+	</nav> -->
+
+	<div class="slidebar">
+		<div class="top">
+			<div class="logo">
+				<a onclick="location.reload()">
+					<img src="{{ url_for('static', filename= '/img/logo.png')}}" height="70" width="66"/>
+				</a>
+				<span>GrowthCatalyst</span>
+			</div>
+			<i class="bx bx-menu" id="btn"></i>
+		</div>
+		<ul>
+			<li>
+				<a href="/">
+					<i class="bx bxs-grid-alt"></i>
+					<span class="nav-item">Dashboard</span>
+				</a>
+				<span class="tooltip">Dashboard</span>
+			</li>
+			<li>
+				<a href="/bunch-of-kyes">
+					<i class='bx bxs-key'></i>
+					<span class="nav-item">Keys</span>
+				</a>
+				<span class="tooltip">Bunch</span>
+			</li>
+			<li>
+				<a href="/financial-control">
+					<i class='bx bxs-briefcase' ></i>
+					<span class="nav-item">Finance</span>
+				</a>
+				<span class="tooltip">Financial</span>
+			</li>
+			<li>
+				<a href="/language-bridge">
+					<i class='bx bxs-planet' ></i>
+					<span class="nav-item">Language</span>
+				</a>
+				<span class="tooltip">Bridge</span>
+			</li>
+			<li>
+				<a href="/thoughts">
+					<i class='bx bxs-pin' ></i>
+					<span class="nav-item">Thoughts</span>
+				</a>
+				<span class="tooltip">Thoughts</span>
+			</li>
+			<li>
+				<a href="/rewards-system">
+					<i class='bx bxs-coin' ></i>
+					<span class="nav-item">Rewards</span>
+				</a>
+				<span class="tooltip">Rewards</span>
+			</li>
+			<li>
+				<a href="/progress">
+					<i class='bx bxs-bar-chart-alt-2' ></i>
+					<span class="nav-item">Progress</span>
+				</a>
+				<span class="tooltip">Progress</span>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-shield' ></i>
+					<span class="nav-item">Protocols</span>
+				</a>
+				<span class="tooltip">Protocols</span>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-bug' ></i>
+					<span class="nav-item">Mistakes</span>
+				</a>
+				<span class="tooltip">Mistakes</span>
+			</li>
+		</ul>
+		<div class="information">
+			<i class='bx bxl-flask'></i>	
+		</div>	
+	</div>
+
+
+	<div class="main-content">
+		<div class="content">
+			{% block body %}{% endblock %}
+		</div>
+	</div>
+
+	<script>
+		let btn = document.querySelector("#btn");
+		let slider = document.querySelector(".slidebar");
+		btn.onclick= function(){
+	        slider.classList.toggle('active');
+		};
+	</script>
 </body>
 </html>

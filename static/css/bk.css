@@ -1,14 +1,14 @@
-/*============= Buch of keys =============*/
 .bk-block{
 	border: 4px solid #f6f7fb;
 	margin: auto;
 	margin-top: 60px;
 	padding: 10px 10px 10px 10px;
-	height: 240px;
+	height: 340px;
 	width: 400px;
-	border-radius:140px;
+	border-radius:15px;
+  	background: #303030;
+  	box-shadow: 0 15px 30px #000;
 }
-
 
 .input-text{
 	width: 89% ;
@@ -17,7 +17,7 @@
 	padding: 0 20px;
 	font-size: 14px;
 	line-height: 45px;
-	color: #7d7d7d;
+	color: #171717;
 	border: none;
 	outline: none;
 	margin: 10px 0 15px 0;
@@ -29,6 +29,7 @@
 
 .input-text:hover{
 	transform: scale(1.03);
+	color:#bd2a2a;
 }
 
 
@@ -48,34 +49,52 @@
 	margin: auto;
 	margin-top: 20px;
 	height: 45px;
-	width: 90%;
+	width: 40%;
+	font-family: "Roboto", sans-serif;
+  	font-weight: 400;
 }
 
-.action-block button{
-	font-family: 'Ubuntu', serif; font-size: 20px;
-	border: none;
-	outline: none;
-	color: #a649f8;
-	background-color: #000;
+.push-btn {
+	color: red;
+	background: none;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 45px;
+	margin: 0 0 2em;
+	max-width: 160px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
 	width: 100%;
-	height: 45px;
-	transition: all .32s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	text-align: center;
+	border: 0 solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+	outline: 1px solid;
+	outline-color: rgba(255, 255, 255, .5);
+	outline-offset: 0px;
+	text-shadow: none;
+	transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.action-block button:hover{
-	color: #fff;
-	background-color: #a649f8;
+.push-btn:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
 }
-
-.action-block button:active{
-	background-color: #521594;
-}
-
 
 .result-block{
 	text-align: center;
 	padding: 10px 0px 0px 0px;
 	font-size: 20px;
 }
-/*==================================*/
 
+.count-label{
+	color:#fff;
+}
