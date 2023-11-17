@@ -3,3 +3,9 @@
 {% block title %}
 Thoughts
 {% endblock %}
+
+{% block body %}
+<p>Date now: {{ moment(current_time).fromNow(refresh=True) }}</p>
+<p>Date now: {{ current_time }}</p>
+<p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+{% endblock %}

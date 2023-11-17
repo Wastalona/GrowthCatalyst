@@ -1,0 +1,9 @@
+h1{
+  font-family: 'FinkSans'; 
+  font-size: 60px;
+}
+
+
+.goal-list{
+  display: inline-block;
+}

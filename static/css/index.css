@@ -239,7 +239,7 @@ body {
 	background-color: #eee;
 	min-height: 100vh;
 	top:0;
-	left:80px;
+	left:205px;
 	transition: all 0.5s ease;
 	width: calc(100% - 80px));
 	padding: 1rem;
@@ -256,8 +256,7 @@ body {
 }
 
 
-
-@media (max-width: 1200px){
+@media (max-height: 1600px){
 	.navbar-menu li a{
 		font-size: 21px;
 	}

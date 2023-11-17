@@ -1,12 +1,17 @@
 from datetime import datetime
 
 from flask import Flask, render_template, escape, url_for, request, redirect
+from flask import make_response, abort
+
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+
+from flask_moment import Moment
 
 # PYTHONPATH="static/scripts" environment variable
 from mbs import PrivateBank, CurrencyParser
 from bk import BunchOfKeys
+from forms import NameForm
 
 
 
@@ -90,10 +95,17 @@ class Storages(db.Model):
 		return "<Storages %r>" % self.id
 
 
+# App settings init
 app = Flask(__name__)
+
+# SQL Alchemy
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///budget.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY'] = 'hard to guess string'
 db.init_app(app)
+
+# Dates and times
+moment = Moment(app)
 
 
 # with app.app_context():
@@ -159,16 +171,59 @@ def eic():
 
 @app.route('/thoughts')
 def thoughts():
-	return render_template('thoughts.html')
+	return render_template('thoughts.html', current_time=datetime.utcnow())
 
 @app.route('/progress')
 def progress():
+	user_agent = request.headers.get('User-Agent')
+	
+	response = make_response('<h1>This document carries a cookie!</h1>')
+	response.set_cookie('answer', '42')
+	
+	info = {
+		"cookie": response,
+		"secure": str(request.is_secure),
+		"scheme": request.scheme,
+		"method": request.method,
+		"host": request.host,
+		"path": request.path,
+		"query_string": request.query_string,
+		"full_path": request.full_path,
+		"url": request.url,
+		"base_url": request.base_url,
+		"remote_addr": request.remote_addr,
+		"environ": request.environ,
+		}
+	
+	for name, arg in info.items():
+		print(f"{name} : {arg}")
+	# print('Your browser is {}'.format(user_agent))
 	return render_template('progress.html')
 
 
-@app.route('/rewards-system')
-def reward():
-	return render_template('rs.html')
+@app.route('/rewards-system/<item>')
+def reward(item):
+	# user = load_user(id)
+	# if not user:
+	# abort(404)
+	return render_template('rs.html', item=item)
+
+
+@app.route('/test-wtforms', methods=['GET', 'POST'])
+def wt():
+	form = NameForm()
+	if form.validate_on_submit():
+		name = form.name.data
+		return render_template("test.html", form=form, name=name)
+	return render_template("test.html", form=form)
+
+# @app.errorhandler(404)
+# def page_not_found(e):
+# 	return render_template('404.html'), 404
+
+# @app.errorhandler(500)
+# def internal_server_error(e):
+# 	return render_template('500.html'), 500
 
 
 if __name__ == '__main__':

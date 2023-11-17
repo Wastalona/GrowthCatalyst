@@ -18,6 +18,11 @@
 	<!--
 	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/adaptive.css') }}"> -->
 	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename= '/img/logo.png') }}">
+
+	{% block scripts %}
+	{{ moment.include_moment() }}
+	{% endblock %}
+
 </head>
 <body>
 	<!-- <nav class="navbar">
@@ -40,7 +45,6 @@
 			</div>
 		</div>
 	</nav> -->
-
 	<div class="slidebar">
 		<div class="top">
 			<div class="logo">
@@ -62,23 +66,23 @@
 			<li>
 				<a href="/bunch-of-kyes">
 					<i class='bx bxs-key'></i>
-					<span class="nav-item">Keys</span>
+					<span class="nav-item">BunchOfKeys</span>
 				</a>
-				<span class="tooltip">Bunch</span>
+				<span class="tooltip">Bunch-Of-Kyes</span>
 			</li>
 			<li>
 				<a href="/financial-control">
 					<i class='bx bxs-briefcase' ></i>
 					<span class="nav-item">Finance</span>
 				</a>
-				<span class="tooltip">Financial</span>
+				<span class="tooltip">Financial Control</span>
 			</li>
 			<li>
 				<a href="/language-bridge">
 					<i class='bx bxs-planet' ></i>
-					<span class="nav-item">Language</span>
+					<span class="nav-item">LangBridge</span>
 				</a>
-				<span class="tooltip">Bridge</span>
+				<span class="tooltip">LangBridge</span>
 			</li>
 			<li>
 				<a href="/thoughts">
@@ -110,7 +114,7 @@
 			</li>
 			<li>
 				<a href="#">
-					<i class='bx bxs-bug' ></i>
+					<i class='bx bxs-bug'></i>
 					<span class="nav-item">Mistakes</span>
 				</a>
 				<span class="tooltip">Mistakes</span>

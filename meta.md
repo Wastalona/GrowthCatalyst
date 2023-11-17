@@ -1,5 +1,9 @@
 # All 
 font: Poppins
+finger paint
+federant
+federo
+fjord
 
 # Financial Control (MBS)
 Varioty of accounts
@@ -22,3 +26,10 @@ Ability to transfer funds between accounts
 разбиениение двух паролей в разных варициях (2x32, 4x16, 8x8) и сочетаниях
 # English In Cards
 # Progress
+
+
+commit 13.11.2023
+navbar change on slidebar
+new home page
+index.css split on a lot files
+
