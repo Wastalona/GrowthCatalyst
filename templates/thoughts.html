@@ -4,8 +4,25 @@
 Thoughts
 {% endblock %}
 
+{% block styles %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/thoughts.css')}}">
+{% endblock %}
+
 {% block body %}
 <p>Date now: {{ moment(current_time).fromNow(refresh=True) }}</p>
 <p>Date now: {{ current_time }}</p>
 <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+
+<div class="notes-block">
+	<div class="note-card">
+	    <div class="note-header">
+	        <h3 class="note-title">Your Note Title</h3>
+	        <button class="note-btn">Edit</button>
+	    </div>
+	    <p class="note-content">
+	        Your note content goes here. It can be a longer text or just a few lines.
+	    </p>
+	</div>
+</div>
 {% endblock %}

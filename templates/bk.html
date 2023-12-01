@@ -11,14 +11,17 @@ Brunch Of Kyes
 
 {% block body %}
 <form class="bk-block" method="POST">
+	{{ bk_form.hidden_tag() }}
 	<!-- <div>
 		<span class="char-count">Symbols: 0/16</span>
 	</div> -->
 	<div class="input-text-block">
 		<span class="text-char-count count-label">Symbols: 0/16</span>
-		<input placeholder="your text" type="text" name="phrase" maxlength="16" class="input-text" autocomplete="off" onkeyup="countLetters();">
+		{{ bk_form.text_input()}}
+		<!-- <input placeholder="your text" type="text" name="phrase" maxlength="16" class="input-text" autocomplete="off" onkeyup="countLetters();"> -->
 		<span class="key-char-count count-label">Symbols: 0/6</span>
-		<input placeholder="your secret key" type="text" name="phrase" maxlength="6" class="input-key input-text" autocomplete="off" onkeyup="countDigits();">
+		{{ bk_form.key_input()}}
+		<!-- <input placeholder="your secret key" type="text" name="phrase" maxlength="6" class="input-key input-text" autocomplete="off" onkeyup="countDigits();"> -->
 	</div>
 	<div class="choice-action-block">
 		<input placeholder="" type="radio" name="mode" value="crypt" class="input-radio" checked> <span class="count-label">Crypt</span>

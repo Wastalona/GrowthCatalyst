@@ -8,6 +8,8 @@ body {
 	line-height: 1.4;
 	color: #000;
 	background: #fefffb;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	/*background: linear-gradient(180deg, #f6475a, #0d0d0c);*/
 	/*min-width: 320px;*/
 	/*overflow-x: hidden;*/
@@ -239,11 +241,12 @@ body {
 	background-color: #eee;
 	min-height: 100vh;
 	top:0;
-	left:205px;
+	left:80px;
 	transition: all 0.5s ease;
 	width: calc(100% - 80px));
 	padding: 1rem;
 }
+
 
 .slidebar .information i{
 	position: absolute;

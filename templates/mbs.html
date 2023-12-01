@@ -9,125 +9,83 @@ Financial control
 {% endblock %}
 
 {% block body %}
-<div class="mbs-container">
-	<!-- <form class="mbs-card" method="POST"> -->
-		<div class="balance-box">
-			<div class="balance-view">
-				<h4>Total balance</h4>
-				<h1>3 233.65 br</h1>
-				<div class="acc-manage-box">
-					<button class="manage-btn"><img src="{{url_for('static', filename='img/pencil.png')}}">Manage accounts</button>
-				</div>
-			</div>
+<form class="balance-box">
+	<div class="balance-view">
+		<h4>Total balance</h4>
+		<h1>3 233.65 br</h1>
+		<div class="acc-manage-box">
+			<button class="manage-btn"><img src="{{url_for('static', filename='img/pencil.png')}}">Manage accounts</button>
 		</div>
-	<!-- </form> -->
-	<!-- <div class="mbs-charts">
-	charts
-		<h1>Charts soon</h1>
-	</div> -->
-	<!-- <div class="mbs-charts">
-	  <canvas class="mbs-canvas" id="myChart"></canvas>
-	</div> -->
+	</div>
 
-	<div class="mbs-container">
-		<div class="navbar-mbs-container">
-			<ul class="navbar-menu">
-				<li class="menu-item"><a href="/financial-control/Transactions">Transactions</a></li>
-				<li class="menu-item"><a href="/financial-control/">Cost</a></li>
-				<li class="menu-item"><a href="/financial-control">Income</a></li>
-			</ul>
+	<div class="assets-box">
+		<div class="assets-view">
+			<h4>Income</h4>
+			<h1>3 233.65 br</h1>
 		</div>
-		<div class="new-record">
-			<form class="mbs-card" method="POST">
-				<label>
-					  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
-				</label>
-				<div class=textboxes>
-					<input type="text" name="amount" size=10 maxlength="10">
-					<span>Amount</span>
-					<input type="text" name="desc" size=10>
-					<span>Describtion</span>
-					<!-- <input type="checkbox" name="" size=10 maxlength="10"> -->
 
-					<select name="typeOfEntry" id="dropbox">
-					  <option value="income-cash">Income cash</option>
-					  <option value="income-card">Income card</option>
-					  <option value="cost-cash">Cost cash</option>
-					  <option value="cost-card">Cost card</option>
-					</select>
-					<span>Type of entry</span>
-
-					<select name="category" id="dropbox">
-					  <option value="income-cash">Income cash</option>
-					  <option value="income-card">Income card</option>
-					  <option value="cost-cash">Cost cash</option>
-					  <option value="cost-card">Cost card</option>
-					</select>
-					<span>Category</span>
-				</div>
-				<div class="box-layout">
-					<button class="box-btn" type="submit">+</button>
-					<button class="box-btn">~</button>
-				</div>
-			</form>
+		<div class="assets-view">
+			<h4>Expenses</h4>
+			<h1>3 233.65 br</h1>
 		</div>
-		<div class="transactions">
+	</div>
 
+	<div class="assets-box">
+		<div class="assets-view">
+			<h4>Cash</h4>
+			<h1>3 233.65 br</h1>
 		</div>
-		<div class="">
 
+		<div class="assets-view">
+			<h4>Card</h4>
+			<h1>3 233.65 br</h1>
+		</div>
+	</div>
+
+</form>
+
+
+<div class="boxes">
+	<div class="info-box c-red">
+		<div class="content-title">
+			<h5>As needed</h5>
+		</div>
+		<div class="content-amount">
+			<p>$1120.24</p>
+		</div>
+		<div class="content-img">
+		</div>
+	</div>
+
+	<div class="info-box c-aqua">
+		<div class="content-title">
+			<h5>Optional</h5>
+		</div>
+		<div class="content-amount">
+			<p>1120.24 BYN</p>
+		</div>
+		<div class="content-img">
+		</div>
+	</div>
+
+	<div class="info-box">
+		<div class="content-title">
+			<h5>Storage</h5>
+		</div>
+		<div class="content-amount">
+			<p>1120.24р</p>
+		</div>
+		<div class="content-img">
 		</div>
 	</div>
 </div>
 
-<div class="progress-circles">
-	<div class="fc-container">
-		<div class="card">
-			<div class="box">
-				<div class="percent">
-					<svg>
-						<circle class="circle-50" cx="70" cy="70" r="70"></circle>
-					</svg>
-				<div class="number">
-					<h2>50 <span>%</span></h2>
-				</div>
-				</div>
-				<h3>1032,56р</h3>
-			</div>
-		</div>
-	</div>
-
-	<div class="fc-container">
-		<div class="card">
-			<div class="box">
-				<div class="percent">
-					<svg>
-						<circle class="circle-30" cx="70" cy="70" r="70"></circle>
-					</svg>
-				<div class="number">
-					<h2>30 <span>%</span></h2>
-				</div>
-				</div>
-				<h3>2200р</h3>
-			</div>
-		</div>
-	</div>
-
-	<div class="fc-container">
-		<div class="card">
-			<div class="box">
-				<div class="percent">
-					<svg>
-						<circle class="circle-20" cx="70" cy="70" r="70"></circle>
-					</svg>
-				<div class="number">
-					<h2>20 <span>%</span></h2>
-				</div>
-				</div>
-				<h3>210р</h3>
-			</div>
-		</div>
-	</div>
+<div class="navbar-mbs-container">
+	<ul class="navbar-menu">
+		<li class="menu-item"><a href="/financial-control/Transactions">Transactions</a></li>
+		<li class="menu-item"><a href="/financial-control/">Cost</a></li>
+		<li class="menu-item"><a href="/financial-control">Income</a></li>
+	</ul>
 </div>
 
 <script src="{{ url_for('static', filename='js-scripts/mbs.js') }}"></script>

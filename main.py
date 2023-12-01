@@ -1,18 +1,18 @@
 from datetime import datetime
 
-from flask import Flask, render_template, escape, url_for, request, redirect
-from flask import make_response, abort
+from flask import Flask, render_template, url_for, request, redirect
+from flask import make_response, session, flash
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 
 from flask_moment import Moment
 
-# PYTHONPATH="static/scripts" environment variable
+# Backend
 from mbs import PrivateBank, CurrencyParser
 from bk import BunchOfKeys
-from forms import NameForm
 
+from forms import *
 
 
 class Base(DeclarativeBase):
@@ -107,7 +107,9 @@ db.init_app(app)
 # Dates and times
 moment = Moment(app)
 
+# PYTHONPATH="static/scripts" environment variable
 
+# Create db if not exist
 # with app.app_context():
 #     db.create_all()
 
@@ -126,18 +128,20 @@ def home():
 	return render_template('home.html')
 
 
-@app.route('/bunch-of-kyes', methods=["POST", "GET"])
+@app.route('/bunch-of-keys', methods=["POST", "GET"])
 def bk():
-	if request.method == "POST":
-		phrase = request.form.get('phrase')
-		mode = request.form.get('mode')
+	bk_form = BunchOfKeysForm()
 
-		# if len(phrase) < 16:
-		# 	return render_template('bk.html', result="Not enough characters")
-		# else:
-		return render_template('bk.html', result=bk_model.get_password(phrase))
+	# if request.method == "POST":
+	# 	phrase = request.form.get('phrase')
+	# 	mode = request.form.get('mode')
 
-	return render_template('bk.html')
+	# 	# if len(phrase) < 16:
+	# 	# 	return render_template('bk.html', result="Not enough characters")
+	# 	# else:
+	# 	return render_template('bk.html', result=bk_model.get_password(phrase))
+
+	return render_template('bk.html', bk_form=bk_form)
 
 
 @app.route('/financial-control', methods=["POST", "GET"])
@@ -211,11 +215,24 @@ def reward(item):
 
 @app.route('/test-wtforms', methods=['GET', 'POST'])
 def wt():
+	# form = NameForm()
+	# if form.validate_on_submit():
+	# 	name = form.name.data
+	# 	form.name.data = ''
+	# 	return render_template("test.html", form=form, name=name)
+	# return render_template("test.html", form=form)
+
 	form = NameForm()
 	if form.validate_on_submit():
-		name = form.name.data
-		return render_template("test.html", form=form, name=name)
-	return render_template("test.html", form=form)
+		old_name = session.get('name')
+		if old_name is not None and old_name != form.name.data:
+			flash('Looks like you have changed your name!')
+		session['name'] = form.name.data
+		return redirect('test-wtforms')
+	return render_template(
+		'test.html',
+		form=form, name=session.get('name'))
+
 
 # @app.errorhandler(404)
 # def page_not_found(e):
