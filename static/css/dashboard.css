@@ -1,6 +1,85 @@
 h1{
   font-family: 'FinkSans'; 
+  font-size: 60px; 
+}
+
+.barbox{
+  width: 90%;
+}
+
+.page-title{
+  display: flex;
+  justify-content: center;
+}
+
+.page-title h1{
+  font-family: 'FinkSans'; 
   font-size: 60px;
+}
+
+.skill-box{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.skill-box .title{
+  position: absolute;
+  display: block;
+  font-weight: 600;
+  font-family: 'FinkSans';
+  font-size: 26px;
+  right: 100px;
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar .skill-per{
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 7.72%;
+  border-radius: 6px;
+  background-color: #ef3c5a;
+  animation: progress 0.4 ease-in-out forwards;
+  opacity: 0;
+}
+@keyframes progress {
+  0%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 1;
+  }
+}
+
+.skill-per .tooltip{
+  position: absolute;
+  right: 0px;
+  top: -40px;
+  font-family: 'FinkSans';
+  font-size: 18px;
+  background-color: #ef3c5a;
+  color: azure;
+  padding: 3px;
+  z-index: 1;
+}
+
+.skill-per .tooltip::before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background-color: #ef3c5a;
+  transform: translateX(-50%) rotate(45deg);
 }
 
 

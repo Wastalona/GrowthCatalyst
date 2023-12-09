@@ -9,8 +9,8 @@ from sqlalchemy.orm import DeclarativeBase
 from flask_moment import Moment
 
 # Backend
-from mbs import PrivateBank, CurrencyParser
-from bk import BunchOfKeys
+# from mbs import PrivateBank, CurrencyParser
+# from bk import BunchOfKeys
 
 from forms import *
 
@@ -115,9 +115,9 @@ moment = Moment(app)
 
 
 # Models
-bk_model = BunchOfKeys()
-bank_model = PrivateBank()
-parser_model = CurrencyParser()
+# bk_model = BunchOfKeys()
+# bank_model = PrivateBank()
+# parser_model = CurrencyParser()
 
 
 # migrations

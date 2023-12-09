@@ -267,13 +267,7 @@ body {
 
 
 @media (max-width: 720px){
-	.app-map{
-		display: flex;
-		padding-right: 0%;
-		padding-left: 0%;
-	}
-
-	.navbar{
-
+	body{
+		width: 720px;
 	}
 }
